@@ -1,0 +1,16 @@
+             ,
+         -  /|
+        -  / |
+      -   /o |
+   ~^~ ^~//-'|~^~ ~^~
+    ~^~.-->>---. ~^ ~^~
+   ~^~ `"""""""` ^~^ ~^
+    ~^~ ~^ ~^~^ ~^~^ ~^
+    Max Oberberger
+    max@oberbergers.de
+
+################################################
+
+
+git-settings.sh: 
+	A script to set useful global git settings (aliases, user-name and user-email,...)
