@@ -13,4 +13,40 @@
 
 
 git-settings.sh: 
-	A script to set useful global git settings (aliases, user-name and user-email,...)
+	A script to set useful global git settings (aliases, user-name and 
+	user-email,...)
+
+
+Usage:
+
+ -h|--help
+       print this helpmenu
+
+ -l|--list
+      list all settings
+
+ -s|--set-alias <COMMAND ALIAS>
+      set command as alias
+      example: -s status st
+
+ -c|--config
+      set configuration for git:
+      * alias
+      * color
+      * editor
+      * mergeOption
+
+      set following alias:
+      ALIAS |  COMMAND:
+      -----------------------------------------------------------------
+      st    |  status
+      ci    |  commit
+      br    |  branch
+      co    |  checkout
+      df    |  diff
+      he    |  help
+      cl    |  clone
+      nfm   |  merge --no-ff
+      ffm   |  merge --ff-only
+      dcw   |  diff --color-words
+      tree  |  log --decorate --pretty=oneline --abbrev-commit --graph
