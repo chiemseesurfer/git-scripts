@@ -11,11 +11,18 @@
 
 ################################################
 
-
 git-settings.sh: 
 	A script to set useful global git settings (aliases, user-name and 
 	user-email,...)
 
+split-repo.sh:
+	This program excludes a folder in an existing git-repository to 
+	a new git-repository.
+
+################################################
+################################################
+
+## git-settings.sh:
 
 Usage:
 
@@ -50,3 +57,21 @@ Usage:
       ffm   |  merge --ff-only
       dcw   |  diff --color-words
       tree  |  log --decorate --pretty=oneline --abbrev-commit --graph
+
+################################################
+
+## split-repo.sh:
+
+Usage: split-repo ORIGIN-REPO NEW-REPO"
+
+	Functionality:"
+	START      |    END"
+	----------------------------"
+	XYZ/       |    XYZ/"
+	   .git/   |        .git"
+	   ABC/    |        XYZ1/"
+	   XYZ1/   |        XYZ2/"
+	   XYZ2/   |    ABC/"
+	           |       .git/"
+	
+	INFO: The NEW-REPO must be a part of the ORIGIN-REPO"
