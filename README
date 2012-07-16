@@ -23,7 +23,7 @@ Usage:
        print this helpmenu
 
  -l|--list
-      list all settings
+      list all existing global git settings
 
  -s|--set-alias <COMMAND ALIAS>
       set command as alias

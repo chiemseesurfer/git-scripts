@@ -22,7 +22,7 @@ function helpmenu(){
 	echo "      print this helpmenu"
 	echo
 	echo " -l|--list"
-	echo "      list all settings"
+	echo "      list all existing global git settings"
 	echo
 	echo " -s|--set-alias <COMMAND ALIAS>"
 	echo "      set command as alias"
