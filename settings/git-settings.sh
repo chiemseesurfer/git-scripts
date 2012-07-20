@@ -3,20 +3,23 @@
 # Max Oberberger (max@oberbergers.de, Januar 2012)
 #
 # This script configures all settings to use git on a client
-# Last changes (14.02.2012)
-
-### GET PARAMETERS
-TEMP=`getopt -o hlcs: --long help,list,config,set-alias: -n 'git-config-settings.sh' -- "$@"`
+# Last changes (20.07.2012)
 
 if [ $? != 0 ];then
 	echo "terminating... " >&2
 	exit 1
 fi
 
-eval set -- "$TEMP"
 
 function helpmenu(){
-	echo "Usage:"
+	if [[ $OSTYPE == "darwin11" ]];then
+		echo "You are on a OSX-System. The long-options like --help are just on unix-systems available!!"
+		echo
+	fi
+	echo "Usage: $0 [Option]"
+	echo
+	echo "Option:"
+	echo "###########################"
 	echo
 	echo " -h|--help"
 	echo "      print this helpmenu"
@@ -124,16 +127,41 @@ function runConfiguration(){
 	echo -e "done"
 } ### END OF runConfiguration
 
-while true; do
-	case "$1" in
-		-h|--help) helpmenu;exit 1;;
-		-l|--list) git config --list; shift 2;break;;
-		-c|--config) runConfiguration;shift 2;break;;
-		-s|--set-alias) ConfigureAlias ${4} ${2}; shift 2;break;;
-		--) shift;;
-		*) echo "Please use $0 -h|--help for helpmenu"; exit 1;;
-	esac
-done
+#############################################################################################
+###########################              MAIN               #################################
+#############################################################################################
+### GET PARAMETERS
+## check if os is a linux or mac system
+if [[ $OSTYPE == "linux-gnu" ]];then
+	TEMP=`getopt -o hlcs: --long help,list,config,set-alias: -n 'git-config-settings.sh' -- "$@"`
+	eval set -- "$TEMP"
+
+	while true; do
+		case "$1" in
+			-h|--help) helpmenu;exit 1;;
+			-l|--list) git config --list; shift 2;break;;
+			-c|--config) runConfiguration;shift 2;break;;
+			-s|--set-alias) ConfigureAlias ${4} ${2}; shift 2;break;;
+			--) shift;;
+			*) echo "Please use $0 -h|--help for helpmenu"; exit 1;;
+		esac
+	done
+elif [[ $OSTYPE == "darwin11" ]];then
+	args=`getopt hlcs $*`
+	set -- $args
+
+	for i;do
+		case "$i"
+		in
+			-h) helpmenu;exit 1;;
+			-l) git config --list; shift;;
+			-c) runConfiguration; shift;;
+			-s) ConfigureAlias ${4} ${3}; shift;;
+			--) shift;break;;
+			*) echo "Please use $0 -h for helpmenu"; exit 1;;
+		esac
+	done
+fi
 #############################
 ## END OF git-config-settings.sh
 #############################
