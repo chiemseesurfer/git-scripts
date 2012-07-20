@@ -11,67 +11,14 @@
 
 ################################################
 
-git-settings.sh: 
+Every script has its own helpmenu (use -h or --help).
+
+settings/git-settings.sh: (tested on osx-lion and debian)
 	A script to set useful global git settings (aliases, user-name and 
 	user-email,...)
 
-split-repo.sh:
+repos/split-repo.sh:
 	This program excludes a folder in an existing git-repository to 
 	a new git-repository.
 
 ################################################
-################################################
-
-## git-settings.sh:
-
-Usage:
-
- -h|--help
-       print this helpmenu
-
- -l|--list
-      list all existing global git settings
-
- -s|--set-alias <COMMAND ALIAS>
-      set command as alias
-      example: -s status st
-
- -c|--config
-      set configuration for git:
-      * alias
-      * color
-      * editor
-      * mergeOption
-
-      set following alias:
-      ALIAS |  COMMAND:
-      -----------------------------------------------------------------
-      st    |  status
-      ci    |  commit
-      br    |  branch
-      co    |  checkout
-      df    |  diff
-      he    |  help
-      cl    |  clone
-      nfm   |  merge --no-ff
-      ffm   |  merge --ff-only
-      dcw   |  diff --color-words
-      tree  |  log --decorate --pretty=oneline --abbrev-commit --graph
-
-################################################
-
-## split-repo.sh:
-
-Usage: split-repo ORIGIN-REPO NEW-REPO"
-
-	Functionality:"
-	START      |    END"
-	----------------------------"
-	XYZ/       |    XYZ/"
-	   .git/   |        .git"
-	   ABC/    |        XYZ1/"
-	   XYZ1/   |        XYZ2/"
-	   XYZ2/   |    ABC/"
-	           |       .git/"
-	
-	INFO: The NEW-REPO must be a part of the ORIGIN-REPO"
