@@ -91,6 +91,15 @@ function mergeOption(){
 } ### END OF mergeOption
 
 #############################
+### set http sslverify to false
+#############################
+function httpVerify(){
+	echo -ne "++ set http sslverify to false ..... "
+	git config --global http.sslverify false
+	echo -e "done"
+} ### END OF httpVerify
+
+#############################
 ### ask which editor should be used
 #############################
 function setEditor(){
@@ -112,6 +121,7 @@ function setEditor(){
 function runConfiguration(){
 	setAlias
 	mergeOption
+	httpVerify
 	setEditor
 	echo -ne "++ set color ..... "
 	git config --global color.ui auto
