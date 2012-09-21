@@ -142,7 +142,7 @@ function runConfiguration(){
 #############################################################################################
 ### GET PARAMETERS
 ## check if os is a linux or mac system
-if [[ $OSTYPE == "linux-gnu" ]];then
+if [[ $OSTYPE == "linux-gnu" ]] || [[ $OSTYPE == "linux" ]];then
 	TEMP=`getopt -o hlcs: --long help,list,config,set-alias: -n 'git-config-settings.sh' -- "$@"`
 	eval set -- "$TEMP"
 
