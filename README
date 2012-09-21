@@ -19,7 +19,7 @@ to get a exact overview about the functions.
 
 --------------------------------------------------------------------------
 
-settings/git-settings.sh: (tested on osx-lion and debian)
+settings/git-settings.sh: (tested on osx-lion, SuSE and debian)
 	A script to set useful global git settings (aliases, user-name and 
 	user-email,...)
 
