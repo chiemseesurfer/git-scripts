@@ -93,9 +93,12 @@ function mergeOption(){
 #############################
 ### set http sslverify to false
 #############################
-function httpVerify(){
+function httpSettings(){
 	echo -ne "++ set http sslverify to false ..... "
 	git config --global http.sslverify false
+	echo -e "done"
+	echo -ne "++ set http postbuffer to 52428800000 ..... "
+	git config --global http.postbuffer 52428800000
 	echo -e "done"
 } ### END OF httpVerify
 
@@ -121,7 +124,7 @@ function setEditor(){
 function runConfiguration(){
 	setAlias
 	mergeOption
-	httpVerify
+	httpSettings
 	setEditor
 	echo -ne "++ set color ..... "
 	git config --global color.ui auto
