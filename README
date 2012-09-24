@@ -22,9 +22,25 @@ to get a exact overview about the functions.
 settings/git-settings.sh: (tested on osx-lion, SuSE and debian)
 	A script to set useful global git settings (aliases, user-name and 
 	user-email,...)
+	Required packages:
+		* git
+		* git-core
 
 repos/split-repo.sh:
 	This program excludes a folder in an existing git-repository to 
 	a new git-repository.
+	Required packages:
+		* git
+		* git-core
+
+svn/convert-svn-to-git.sh:
+	This script makes it possible to convert a svn-repository into a
+	git-repository. Use the included helpmenu to see how it works.
+	Required packages:
+		* git
+		* git-core
+		* git-svn
+		* svn
+
 
 ##########################################################################
