@@ -12,6 +12,59 @@
     www.maxoberberger.net
 
 ##########################################################################
+Copyright 2012 Max Oberberger
+
+Table of Contents
+=================
+	1. Introduction
+	2. System Requirements
+	3. Installation
+	4. Using containing scripts
+	5. References
+
+1.Introduction
+===============
+If you are using git [1] for source control, then this scripts might be useful
+to you.
+
+2. System Requirements
+===============
+	- Git Version 1.6.x.y or newer (I've tested with 1.7.2.5)
+	  debian packages for all scripts:
+		* git
+		* git-core
+
+	- SVN Version 1.6.X or newer (I've tested with 1.6.12) - required for
+	  convert-svn-to-git.sh
+
+	- debian-package git-svn (required for convert-svn-to-git.sh): A 
+	  Bidirectional operation between a Subversion repository and git. 
+	  It is a simple conduit for changesets between Subversion and 
+	  git. It provides a bidirectional flow of changes between a 
+	  Subversion and a git repository.
+
+3. Installation
+===============
+
+4. Using containing scripts
+===============
+	Here I give you a short explanation how you can use included scripts.
+
+4.1 Using git-settings.sh
+---------------
+
+4.2 Using split-repo.sh
+---------------
+
+4.3 Using convert-svn-to-git.sh
+---------------
+
+
+5. References
+===============
+[1] Git, an source configuration management ("SCM") tool
+    http://git-scm.com/
+
 
 Info: 
 Every script has its own helpmenu (use -h or --help). Use this helpmenu
@@ -22,25 +75,12 @@ to get a exact overview about the functions.
 settings/git-settings.sh: (tested on osx-lion, SuSE and debian)
 	A script to set useful global git settings (aliases, user-name and 
 	user-email,...)
-	Required packages:
-		* git
-		* git-core
 
 repos/split-repo.sh:
 	This program excludes a folder in an existing git-repository to 
 	a new git-repository.
-	Required packages:
-		* git
-		* git-core
 
 svn/convert-svn-to-git.sh:
 	This script makes it possible to convert a svn-repository into a
 	git-repository. Use the included helpmenu to see how it works.
-	Required packages:
-		* git
-		* git-core
-		* git-svn
-		* svn
-
-
 ##########################################################################
