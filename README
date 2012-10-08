@@ -85,35 +85,79 @@ to you.
 
 4.1 Using git-settings.sh
 ---------------
+	This script supports you to set all helpful git config settings.
+	Called with -c, this script configures some git alias, your editor for
+	git commit, colored output, http(s) settings like verify and postbuffer.
+
+	Example:
+	$ ./git-settings.sh -c
+	++++ set alias:
+	++ set alias st = status ..... done
+	++ set alias ci = commit ..... done
+	++ set alias br = branch ..... done
+	++ set alias co = checkout ..... done
+	++ set alias df = diff ..... done
+	++ set alias he = help ..... done
+	++ set alias cl = clone ..... done
+	++ set alias nfm = merge --no-ff ..... done
+	++ set alias ffm = merge --ff-only ..... done
+	++ set alias dcw = diff --color-words ..... done
+	++ set alias tree = log --decorate --pretty=oneline --abbrev-commit
+	--graph ..... done
+	++ set merge option = --no-ff ..... done
+	++ set http sslverify to false ..... done
+	++ set http postbuffer to 52428800000 ..... done
+
+	Which editor do you want to use to modify commit messages? e.g.
+	vim,vi,gedit (default = vim).
+	editor: vim
+	++ set editor = vim ..... done
+	++ set color ..... done
+	set username and emailadress
+	your name (example Max Mustermann): Max Oberberger
+	your mailadress (example: max@mustermann.de): max@oberbergers.de
+	++ set username and emailadress .....done
+
 
 4.2 Using split-repo.sh
 ---------------
+	With my split-repo script you can extract a subfolder of a
+	git-repository to a complete own git-repository.
+	If your Start-Repo is under /tmp/, you need to move to /tmp/
+	
+	Example:
+	Usage: split-repo XYZ ABC
+
+	START      |    END
+	----------------------------
+	XYZ/       |    XYZ/
+	   .git/   |        .git/
+	   ABC/    |        XYZ1/
+	   XYZ1/   |        XYZ2/
+	   XYZ2/   |    ABC/
+	           |       .git/
+
+
+	normal output of this script:
+	$ split-repo.sh XYZ ABC
+	+++++ start git clone ..... done
+	+++++ change in new repo  ..... done
+	+++++ git filter-branch --subdirectory-filter ..... done
+	+++++ git reset --hard ..... done
+	+++++ git reflog expire ..... done
+	+++++ git gc --aggressiveCounting objects: 445, done.
+	Delta compression using up to 2 threads.
+	Compressing objects: 100% (440/440), done.
+	Writing objects: 100% (445/445), done.
+	Total 445 (delta 276), reused 0 (delta 0)
+	 ..... done
 
 4.3 Using convert-svn-to-git.sh
 ---------------
+	Explanation coming soon
 
 
 5. References
 ===============
 [1] Git, an source configuration management ("SCM") tool
     http://git-scm.com/
-
-
-Info: 
-Every script has its own helpmenu (use -h or --help). Use this helpmenu
-to get a exact overview about the functions.
-
---------------------------------------------------------------------------
-
-settings/git-settings.sh: (tested on osx-lion, SuSE and debian)
-	A script to set useful global git settings (aliases, user-name and 
-	user-email,...)
-
-repos/split-repo.sh:
-	This program excludes a folder in an existing git-repository to 
-	a new git-repository.
-
-svn/convert-svn-to-git.sh:
-	This script makes it possible to convert a svn-repository into a
-	git-repository. Use the included helpmenu to see how it works.
-##########################################################################
