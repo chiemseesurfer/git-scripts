@@ -22,10 +22,12 @@ Table of Contents
 	4. Using containing scripts
 	5. References
 
+
 1.Introduction
 ===============
 If you are using git [1] for source control, then this scripts might be useful
 to you.
+
 
 2. System Requirements
 ===============
@@ -43,12 +45,43 @@ to you.
 	  git. It provides a bidirectional flow of changes between a 
 	  Subversion and a git repository.
 
+
 3. Installation
 ===============
+3.1 copy in local folder (root required)
+---------------
+	You can copy the scripts to /usr/local/bin. If done, the script is
+	located in your $PATH and you can execute it by just calling the script.
+	For this you need root permissions on your computer. If you don't have
+	root permissions, you can use 3.2.
+	Example:
+	$ sudo cp settings/git-settings.sh /usr/local/bin/
+	$ git-settings.sh -h
+
+3.2 change $PATH (no root required)
+---------------
+	If you don't have root permissions on your client, you can modify your
+	$PATH variable.
+	clone this repository whereever you want and export your $PATH in your
+	bashrc with the path to your cloned directory:
+	Example:
+	$ cd /tmp/
+	$ git clone https://github.com/chiemseesurfer/git-scripts.git
+	$ cd git-scripts
+	$ pwd
+	/tmp/git-scripts
+	$ echo "export PATH=$PATH:/tmp/git-scripts" >> ~/.bashrc
+	$ export .bashrc
+
 
 4. Using containing scripts
 ===============
-	Here I give you a short explanation how you can use included scripts.
+	Every script has its own helpmenu (use -h or --help). Sometimes if you
+	don't know how to use a script, you can have a look at one of these 
+	helpmenus.
+
+	I also give you a short explanation how to use my scripts in this
+	README-file.
 
 4.1 Using git-settings.sh
 ---------------
