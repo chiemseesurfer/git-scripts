@@ -16,9 +16,11 @@ if [ $? != 0 ];then
 	exit 1
 fi
 
+OS=`uname`
+
 
 function helpmenu(){
-	if [[ $OSTYPE == "darwin11" ]];then
+	if [[ $OS == "Darwin" ]] || [[ $OS == "darwin" ]];then
 		echo "You are on a OSX-System. The long-options like --help are just on unix-systems available!!"
 		echo
 	fi
@@ -49,7 +51,7 @@ function helpmenu(){
 #############################################################################################
 ### GET PARAMETERS
 ## check if os is a linux or mac system
-if [[ $OSTYPE == "linux-gnu" ]] || [[ $OSTYPE == "linux" ]];then
+if [[ $OS == "linux-gnu" ]] || [[ $OS == "linux" ]] || [[ $OS == "Linux" ]] ||[[ $OS == "Linux-gnu" ]];then
 	TEMP=`getopt -o hr:p:s: --long repo:,help,path:,svn: -n 'convert-svn-to-git.sh' -- "$@"`
 	eval set -- "$TEMP"
 
@@ -64,7 +66,8 @@ if [[ $OSTYPE == "linux-gnu" ]] || [[ $OSTYPE == "linux" ]];then
 		esac
 	done 
 
-elif [[ $OSTYPE == "darwin11" ]];then
+elif [[ $OS == "Darwin" ]] || [[ $OS == "darwin" ]];then
+
 	args=`getopt hps $*`
 	set -- $args
 
@@ -237,7 +240,7 @@ function convertSVNToGit(){
 function check_device_size(){
 	cd ${HELP_PATH}
 
-	if [[ $OSTYPE == "darwin11" ]];then
+	if [[ $OS == "Darwin" ]] || [[ $OS == "darwin" ]];then
 		DEVICE_SIZE=`/bin/df -h .|/usr/bin/tail -n 1|/usr/bin/awk {'print $(NF-5)'}|cut -dG -f1`
 	else
 		DEVICE_SIZE=`/bin/df -h .|/usr/bin/tail -n 1|/usr/bin/awk {'print $(NF-2)'}|cut -dG -f1`

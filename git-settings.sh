@@ -10,9 +10,10 @@ if [ $? != 0 ];then
 	exit 1
 fi
 
+OS=`uname`
 
 function helpmenu(){
-	if [[ $OSTYPE == "darwin11" ]];then
+	if [[ $OS == "Darwin" ]] || [[ $OS == "darwin" ]];then
 		echo "You are on a OSX-System. The long-options like --help are just on unix-systems available!!"
 		echo
 	fi
@@ -145,7 +146,7 @@ function runConfiguration(){
 #############################################################################################
 ### GET PARAMETERS
 ## check if os is a linux or mac system
-if [[ $OSTYPE == "linux-gnu" ]] || [[ $OSTYPE == "linux" ]];then
+if [[ $OS == "linux-gnu" ]] || [[ $OS == "linux" ]] || [[ $OS == "Linux" ]] ||[[ $OS == "Linux-gnu" ]];then
 	TEMP=`getopt -o hlcs: --long help,list,config,set-alias: -n 'git-settings.sh' -- "$@"`
 	eval set -- "$TEMP"
 
@@ -159,7 +160,7 @@ if [[ $OSTYPE == "linux-gnu" ]] || [[ $OSTYPE == "linux" ]];then
 			*) echo "Please use $0 -h|--help for helpmenu"; exit 1;;
 		esac
 	done
-elif [[ $OSTYPE == "darwin11" ]];then
+elif [[ $OS == "Darwin" ]] || [[ $OS == "darwin" ]];then
 	args=`getopt hlcs $*`
 	set -- $args
 
