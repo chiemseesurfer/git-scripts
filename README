@@ -154,8 +154,21 @@ to you.
 
 4.3 Using convert-svn-to-git.sh
 ---------------
-	Explanation coming soon
-
+	This script makes it possible to you to convert a existing
+	SVN-Repository to a new Git-Repository.
+	You can set three options:
+	-p	path to new Git-Repository (default: /tmp)
+	-s	http-path to svn-Repository (default: http://127.0.0.1/svn)
+	-r	Name of new Git-Repository (default: git-svn-mirror)
+	
+	Steps of this script:
+	1. create local svn-mirror to minimize networktraffic
+	2. generate authors-file. Git has a different User-Syntax. This must be
+	   changed.
+	   Example:
+		Git-User: Max Mustermann <max.mustermann@example.com>
+		SVN-User: mmustermann <mmustermann>
+	3. convert SVN to git
 
 5. References
 ===============
