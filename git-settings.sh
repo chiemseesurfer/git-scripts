@@ -10,6 +10,7 @@ if [ $? != 0 ];then
 	exit 1
 fi
 
+# ignorecase for uname - switch all lowercase to uppercase
 OST=`uname | tr -s [:lower:] [:upper:]`
 
 function helpmenu(){
