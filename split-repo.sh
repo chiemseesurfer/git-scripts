@@ -33,27 +33,27 @@ fi
 ORIGIN_REPO=$1
 NEW_REPO=$2
 
-echo -n "+++++ start git clone"
+echo -n "++ start git clone"
 git clone --no-hardlinks ${ORIGIN_REPO} ${NEW_REPO} 1> /dev/null
 echo " ..... done"
 
-echo -n "+++++ change in new repo "
+echo -n "++ change in new repo "
 cd ${NEW_REPO}
 echo " ..... done"
 
-echo -n "+++++ git filter-branch --subdirectory-filter"
+echo -n "++ git filter-branch --subdirectory-filter"
 git filter-branch --subdirectory-filter ${NEW_REPO} HEAD -- --all 1> /dev/null ### alle anderen Sachen ausser das new-repo markieren, damit es vom Garbage-Collector entfernt wird
 echo " ..... done"
 
 ### backup reflogs entfernen
-echo -n "+++++ git reset --hard"
+echo -n "++ git reset --hard"
 git reset --hard 1> /dev/null
 echo " ..... done"
 
-echo -n "+++++ git reflog expire"
+echo -n "++ git reflog expire"
 git reflog expire --expire=now --all 1> /dev/null
 echo " ..... done"
 
-echo -n "+++++ git gc --aggressive"
+echo -n "++ git gc --aggressive"
 git gc --aggressive --prune=now 1> /dev/null
 echo " ..... done"

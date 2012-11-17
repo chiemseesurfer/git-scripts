@@ -139,12 +139,12 @@ to you.
 
 	normal output of this script:
 	$ split-repo.sh XYZ ABC
-	+++++ start git clone ..... done
-	+++++ change in new repo  ..... done
-	+++++ git filter-branch --subdirectory-filter ..... done
-	+++++ git reset --hard ..... done
-	+++++ git reflog expire ..... done
-	+++++ git gc --aggressiveCounting objects: 445, done.
+	++ start git clone ..... done
+	++ change in new repo  ..... done
+	++ git filter-branch --subdirectory-filter ..... done
+	++ git reset --hard ..... done
+	++ git reflog expire ..... done
+	++ git gc --aggressiveCounting objects: 445, done.
 	Delta compression using up to 2 threads.
 	Compressing objects: 100% (440/440), done.
 	Writing objects: 100% (445/445), done.
