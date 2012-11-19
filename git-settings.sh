@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-# Max Oberberger (max@oberbergers.de, Januar 2012)
+# Max Oberberger (github@oberbergers.de, Januar 2012)
 #
 # This script configures all settings to use git on a client
-# Last changes (20.07.2012)
+# Last changes (19.11.2012)
 
 if [ $? != 0 ];then
 	echo "terminating... " >&2
@@ -11,10 +11,10 @@ if [ $? != 0 ];then
 fi
 
 # ignorecase for uname - switch all lowercase to uppercase
-OST=`uname | tr -s [:lower:] [:upper:]`
+OST=`uname | tr -s [:upper:] [:lower:]`
 
 function helpmenu(){
-	if [[ $OST == "DARWIN" ]];then
+	if [[ $OST == "darwin" ]];then
 		echo "You are on a OSX-System. The long-options like --help are just on unix-systems available!!"
 		echo
 	fi
@@ -137,7 +137,7 @@ function runConfiguration(){
 	echo -ne "your mailadress (example: max@mustermann.de): "
 	read email
 	echo -ne "++ set username and emailadress ....."
-	git config --global user.name ${name}
+	git config --global user.name "${name}"
 	git config --global user.email "<${email}>"
 	echo -e "done"
 } ### END OF runConfiguration
@@ -147,7 +147,7 @@ function runConfiguration(){
 #############################################################################################
 ### GET PARAMETERS
 ## check if os is a linux or mac system
-if [[ $OST == "LINUX-GNU" ]] || [[ $OST == "LINUX" ]];then
+if [[ $OST == "linux-gnu" ]] || [[ $OST == "linux" ]];then
 	TEMP=`getopt -o hlcs: --long help,list,config,set-alias: -n 'git-settings.sh' -- "$@"`
 	eval set -- "$TEMP"
 
@@ -161,7 +161,7 @@ if [[ $OST == "LINUX-GNU" ]] || [[ $OST == "LINUX" ]];then
 			*) echo "Please use $0 -h|--help for helpmenu"; exit 1;;
 		esac
 	done
-elif [[ $OST == "DARWIN" ]];then
+elif [[ $OST == "darwin" ]];then
 	args=`getopt hlcs $*`
 	set -- $args
 
