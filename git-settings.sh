@@ -3,7 +3,8 @@
 # Max Oberberger (github@oberbergers.de, Januar 2012)
 #
 # This script configures all settings to use git on a client
-# Last changes (19.11.2012)
+# Last changes (25.02.2013)
+set -u
 
 if [ $? != 0 ];then
 	echo "terminating... " >&2
@@ -105,6 +106,21 @@ function httpSettings(){
 } ### END OF httpVerify
 
 #############################
+### set pack settings to handle memory usage 
+#############################
+function packSettings(){
+    echo -ne "++ set pack windowMemory 200m ..... "
+    git config --global pack.windowMemory "200m"
+	echo -e "done"
+    echo -ne "++ set pack Size Limit 200m ..... "
+    git config --global pack.SizeLimit "200m"
+	echo -e "done"
+    echo -ne "++ set pack threads 2 ..... "
+    git config --global pack.threads "2" 
+	echo -e "done"
+} ### END OF packSettings
+
+#############################
 ### ask which editor should be used
 #############################
 function setEditor(){
@@ -127,6 +143,7 @@ function runConfiguration(){
 	setAlias
 	mergeOption
 	httpSettings
+    packSettings
 	setEditor
 	echo -ne "++ set color ..... "
 	git config --global color.ui auto
