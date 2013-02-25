@@ -106,7 +106,7 @@ function httpSettings(){
 } ### END OF httpVerify
 
 #############################
-### set pack settings to handle memory usage 
+### set pack settings to handle memory usage
 #############################
 function packSettings(){
     echo -ne "++ set pack windowMemory 200m ..... "
@@ -116,7 +116,7 @@ function packSettings(){
     git config --global pack.SizeLimit "200m"
 	echo -e "done"
     echo -ne "++ set pack threads 2 ..... "
-    git config --global pack.threads "2" 
+    git config --global pack.threads "2"
 	echo -e "done"
 } ### END OF packSettings
 
