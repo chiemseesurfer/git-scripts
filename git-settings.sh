@@ -54,7 +54,7 @@ function helpmenu(){
 	echo "         nfm   |  merge --no-ff"
 	echo "         ffm   |  merge --ff-only"
 	echo "         dcw   |  diff --color-words"
-	echo "         tree  |  log --decorate --pretty=oneline --abbrev-commit --graph"
+	echo "         tree  |  log --decorate --pretty=oneline --abbrev-commit --graph --all"
 }
 
 #############################
@@ -81,7 +81,7 @@ function setAlias(){
 	ConfigureAlias "nfm" "merge --no-ff"
 	ConfigureAlias "ffm" "merge --ff-only"
 	ConfigureAlias "dcw" "diff --color-words"
-	ConfigureAlias "tree" "log --decorate --pretty=oneline --abbrev-commit --graph"
+	ConfigureAlias "tree" "log --decorate --pretty=oneline --abbrev-commit --graph --all"
 } ### END OF setAlias
 
 #############################

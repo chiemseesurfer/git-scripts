@@ -101,7 +101,7 @@ to you.
 	++ set alias nfm = merge --no-ff ..... done
 	++ set alias ffm = merge --ff-only ..... done
 	++ set alias dcw = diff --color-words ..... done
-	++ set alias tree = log --decorate --pretty=oneline --abbrev-commit
+	++ set alias tree = log --decorate --pretty=oneline --abbrev-commit --all
 	--graph ..... done
 	++ set merge option = --no-ff ..... done
 	++ set http sslverify to false ..... done
