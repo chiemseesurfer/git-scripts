@@ -33,11 +33,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 Table of Contents
 =================
-	1. Introduction
-	2. System Requirements
-	3. Installation
-	4. Using containing scripts
-	5. References
+1. [Introduction]()
+2. [System Requirements]()
+3. [Installation]()
+4. [Using containing scripts]()
+5. [References]()
+6. [FAQ]()
 
 
 1.Introduction
@@ -191,3 +192,11 @@ to you.
 ===============
 [1] Git, an source configuration management ("SCM") tool
     http://git-scm.com/
+
+6. FAQ
+===============
+- **Can not push to remote because of out of memory**  
+ If you get an error with out of memory, try to decrease postbuffer setting
+ with:
+
+    git config --global http.postbuffer 524288000
