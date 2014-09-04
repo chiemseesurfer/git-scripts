@@ -43,6 +43,7 @@ function helpmenu {
 
 if [ "$#" -le "1" ] || [ "$#" -gt "2" ];then
 	helpmenu
+    exit 1
 fi
 
 ORIGIN_REPO=$1
