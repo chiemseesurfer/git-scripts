@@ -110,6 +110,47 @@ function mergeOption(){
 } ### END OF mergeOption
 
 #############################
+### set global gitignore file
+#############################
+function gitignoreOption(){
+	echo -ne "++ set global gitignore to default .gitignore ..... "
+	git config --global core.excludesfile '~/.gitignore'
+	echo -e "done"
+} ### END OF mergeOption
+
+#############################
+### set advice settings 
+#############################
+function adviceSettings(){
+	echo -ne "++ set advice statusHints to false ..... "
+	git config --global advice.statusHints false
+	echo -e "done"
+} ### END OF adviceSettings
+
+#############################
+### set branch settings 
+#############################
+function branchSettings(){
+	echo -ne "++ set branch autosetupmerge to true ..... "
+    # automatically let the local branch track the remote branch, when brancing
+    # off a remote branch
+	git config --global branch.autosetupmerge true
+	echo -e "done"
+
+    echo -ne "++ set push default to tracking ..... "
+    git config --global push.default tracking
+    echo -e "done"
+
+    echo -ne "++ enable recording of resolved conflicts ..... "
+    git config --global rerere.enabled true
+    echo -e "done"
+
+    echo -ne "++ show diffstat at the end of a merge ..... "
+    git config --global merge.stat true
+    echo -e "done"
+} ### END OF adviceSettings
+
+#############################
 ### set http sslverify to false
 #############################
 function httpSettings(){
@@ -119,7 +160,7 @@ function httpSettings(){
 	echo -ne "++ set http postbuffer to 52428800000 ..... "
 	git config --global http.postbuffer 52428800000
 	echo -e "done"
-} ### END OF httpVerify
+} ### END OF httpSettings
 
 #############################
 ### set pack settings to handle memory usage
@@ -160,6 +201,9 @@ function runConfiguration(){
 	mergeOption
 	httpSettings
     packSettings
+    gitignoreOption
+    adviceSettings
+    branchSettings
 	setEditor
 	echo -ne "++ set color ..... "
 	git config --global color.ui auto
